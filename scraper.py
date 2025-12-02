@@ -2,13 +2,14 @@ import yfinance as yf
 import pandas as pd
 import pandas_ta as ta
 import numpy as np
+import datetime
 
 # ==========================================
 # 1. CONFIGURATION & DOWNLOAD
 # ==========================================
 # We fetch a long history (from 2000) to ensure sufficient data for training
 start_date = "2000-01-01"
-end_date = "2024-01-01"
+end_date = (datetime.date.today() + datetime.timedelta(days=1)).strftime("%Y-%m-%d")
 filename = "sp500_dataset.csv"
 
 print(f"📥 Downloading S&P 500 and VIX data ({start_date} to {end_date})...")
